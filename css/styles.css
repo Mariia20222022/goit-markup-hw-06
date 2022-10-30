@@ -551,7 +551,7 @@ width: 100%;
 height: 100%;
 transform: translateY(100%);
 opacity: 0;
-transition-property: opacity, transform;
+transition-property: opacity, transform, box-shadow;
 transition-duration:var(--transition-duration);
 transition-timing-function: var(--transition-timing-function);
 }
@@ -567,22 +567,24 @@ letter-spacing: 0.03em;
 .item:hover .card-overlay{
     transform: translateY(0%);
     opacity: 1;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .item:focus .card-overlay{
     transform: translateY(0%);
     opacity: 1;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .card-link{
     transition-property: box-shadow;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 }
-.card-link:hover{
+.card-link:hover .card-overlay{
 box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
-.card-link:focus{
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-    }
+.card-link:focus .card-overlay{
+box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
 
 
 .card-title {
@@ -720,6 +722,7 @@ transition-timing-function: var(--transition-timing-function);
 .client-link:focus {
     border: 1px solid var(--additional-color);
     fill: var(--additional-color);
+    
 }
 
 .client-link:hover .clients-icon {
@@ -781,10 +784,16 @@ background-color: var(--additional-color);
     display: flex;
     align-items: baseline;
 }
+.box-fourth{
+   
+    margin-left: auto;
+    gap: 12px;
+}
 .button-footer{
 display: flex;
 width: 200px;
 height: 50px;
+border: 1px solid transparent;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 background-color: var(--additional-color);
 color: var(--attribute-color);
@@ -799,13 +808,17 @@ text-align: center;
 letter-spacing: 0.06em;
 gap:10px;
 cursor: pointer;
-transition-property: background-color;
+transition-property: background-color, box-shadow;
 transition-duration: var(--transition-duration);
 transition-timing-function: var(--transition-timing-function);
 }
-.button-footer:focus,
+.button-footer:focus{
+    background-color: var(--button-active);
+        box-shadow: 0px 4p 4px rgba(0, 0, 0, 0.15);
+}
 .button-footer:hover{
 background-color: var(--button-active);
+box-shadow: 0px 4p 4px rgba(0, 0, 0, 0.15);
 }
 .action-title{
    width: 100%;
@@ -825,9 +838,11 @@ background-color: var(--button-active);
 }
 .field-footer{
 height: 50px;
+width: 358px;
 border: 1px solid rgba(255, 255, 255, 0.3);
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
-    border-radius: 4px;
+box-sizing: border-box;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+border-radius: 4px;
 background-color: var(--section-color);
 margin-right: 12px;
 box-sizing: border-box;
@@ -835,7 +850,9 @@ transition-property: border-color;
 transition-duration: var(--transition-duration);
 transition-timing-function: var(--transition-timing-function);
 }
-.field-footer:focus,
+.field-footer:focus{
+border-color: var(--additional-color);
+}
 .field-footer:hover{
 border-color:var(--additional-color);
 }
@@ -938,12 +955,14 @@ margin-bottom: 4px;
 }
 .field{
     width: 100%;
-  
+  height: 40px;
 border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
     outline: none;
-    padding: 11px 11px 11px 32px;
-    
+    padding: 11px 11px 11px 35px;
+    transition-property: border-color;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
 }
 .field:focus{
     border-color: var(--additional-color);
@@ -956,7 +975,6 @@ border: 1px solid rgba(33, 33, 33, 0.2);
     border: 1px solid rgba(33, 33, 33, 0.2);
         border-radius: 4px;
         outline: none;
-        margin-bottom: 20px;
 }
 .comments-field:focus{
   border-color: var(--additional-color);
@@ -982,8 +1000,18 @@ text-align: center;
         border-radius: 4px;
         border: transparent;
         margin-left: 124px;
-        margin-right: 124px;
-       
+        margin-right: 124px;  
+        transition-property: background-color, box-shadow; 
+        transition-duration: var(--transition-duration)
+        transition-timing-function: var(--transition-timing-function);
+}
+.button-modal:focus{
+    background-color: var(--button-active);
+    box-shadow: 0px 4p 4px rgba(0, 0, 0, 0.15);
+}
+.button-modal:hover{
+    background-color: var(--button-active);
+    box-shadow: 0px 4p 4px rgba(0, 0, 0, 0.15);
 }
 .contract-title{
     font-weight: 400;
@@ -1005,10 +1033,83 @@ font-weight: 400;
 .icon-wrapper{
     position: relative;
 }
-.icon{
-    display: inline-block;
+
+.icon-data{
     position: absolute;
+    width: 18px;
+    height:18px;
     left: 12px;
     top:50%;
     transform: translateY(-50%);
+    transition-property: fill;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
+}
+.field:focus+ .icon-data{
+    fill: var(--additional-color);
+}
+.label-input{
+    position: relative;
+    display: flex;
+    align-items: center;
+   
+    font-weight: 400;
+        font-size: 14px;
+        line-height: 1.7;
+   letter-spacing: 0.03em;
+   color: var(--text-color);
+padding-left: 24px;
+
+}
+.contract-link{
+    margin: 0;
+    padding: 0;
+font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+    letter-spacing: 0.03em;
+    color: var(--additional-color);
+    text-decoration: underline;
+}
+
+.input{
+ appearance: none;
+}
+.input::before{
+    position: absolute;
+    content: "";
+    width: 16px;
+    height: 15px;
+   border: 1px solid var(--base-color);
+    left: 0px;
+    top:50%;
+    transform: translateY(-50%);
+}
+.icon{
+    position: absolute;
+    width: 16px;
+    height: 15px;
+    left: 0;
+    top:50%;
+    transform: translateY(-50%);
+    opacity: 0;  
+    transition-property: fill, opacity, background-color;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
+}
+
+.input:checked+ .icon{
+opacity: 1;
+fill: var(--attribute-color);
+background-color: var(--additional-color);
+}
+.checkbox-container{
+    margin-left: 12px;
+    margin-bottom: 30px;
+}
+.person-data-container{
+    margin-bottom: 10px;
+}
+.textarea-container{
+margin-bottom: 20px;
 }
